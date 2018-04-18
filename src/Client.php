@@ -461,24 +461,27 @@ class Client
         $this->getAndMap($sell->getResourcePath(), $params, 'toSell', $sell);
     }
 
+
     /**
-     * Sells some amount of bitcoin.
-     *
-     * Supported parameters include:
-     *
-     *  * agree_btc_amount_varies (Boolean)
-     *  * commit (Boolean)
-     *  * quote (Boolean)
+     * @param Account $account
+     * @param Sell $sell
+     * @param array $params
+     * @return mixed
      */
     public function createAccountSell(Account $account, Sell $sell, array $params = [])
     {
         $data = $this->mapper->fromSell($sell);
-        $this->postAndMap($account->getResourcePath().'/sells', $data + $params, 'toSell', $sell);
+       return  $this->postAndMap($account->getResourcePath().'/sells', $data + $params, 'toSell', $sell);
     }
 
+    /**
+     * @param Sell $sell
+     * @param array $params
+     * @return mixed
+     */
     public function commitSell(Sell $sell, array $params = [])
     {
-        $this->postAndMap($sell->getResourcePath().'/commit', $params, 'toSell', $sell);
+        return  $this->postAndMap($sell->getResourcePath().'/commit', $params, 'toSell', $sell);
     }
 
     // deposits

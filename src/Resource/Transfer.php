@@ -80,6 +80,11 @@ abstract class Transfer extends Resource
         $this->amount = new Money($amount, CurrencyCode::BTC);
     }
 
+    public function setEuroAmount($amount)
+    {
+        $this->amount = new Money($amount, CurrencyCode::EUR);
+    }
+
     public function getSubtotal()
     {
         return $this->subtotal;
