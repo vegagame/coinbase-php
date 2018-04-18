@@ -25,7 +25,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "fix-sell"
+            "dev-master": "master"
         }
     }
 }
