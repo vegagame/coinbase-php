@@ -409,19 +409,17 @@ class Client
         $this->getAndMap($buy->getResourcePath(), $params, 'toBuy', $buy);
     }
 
+
     /**
-     * Buys some amount of bitcoin.
-     *
-     * Supported parameters include:
-     *
-     *  * agree_btc_amount_varies (Boolean)
-     *  * commit (Boolean)
-     *  * quote (Boolean)
+     * @param Account $account
+     * @param Buy $buy
+     * @param array $params
+     * @return mixed
      */
     public function createAccountBuy(Account $account, Buy $buy, array $params = [])
     {
         $data = $this->mapper->fromBuy($buy);
-        $this->postAndMap($account->getResourcePath().'/buys', $data + $params, 'toBuy', $buy);
+      return   $this->postAndMap($account->getResourcePath().'/buys', $data + $params, 'toBuy', $buy);
     }
 
     public function commitBuy(Buy $buy, array $params = [])
